@@ -26,3 +26,9 @@ export async function GetRating(course: Types.ObjectId): Promise<number> {
 		reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length
 	);
 }
+
+export async function GetEnrolledStudents(
+	course: Types.ObjectId,
+): Promise<number> {
+	return Review.countDocuments({ course });
+}
